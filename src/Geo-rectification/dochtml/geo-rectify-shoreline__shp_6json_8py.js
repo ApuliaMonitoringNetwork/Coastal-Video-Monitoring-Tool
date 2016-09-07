@@ -1,0 +1,26 @@
+var geo_rectify_shoreline__shp_6json_8py =
+[
+    [ "asa", "geo-rectify-shoreline__shp_6json_8py.html#a82a8e57c5e99f86f461aa40d385a6654", null ],
+    [ "atr", "geo-rectify-shoreline__shp_6json_8py.html#a5a0eff39ed568d163072866ea524189a", null ],
+    [ "buffer", "geo-rectify-shoreline__shp_6json_8py.html#acb4fd902baf1ecd16388056869151419", null ],
+    [ "field_names", "geo-rectify-shoreline__shp_6json_8py.html#af0d3ff56173c302713434fe198e3cd6b", null ],
+    [ "fields", "geo-rectify-shoreline__shp_6json_8py.html#a7a895fdfd3a4d5e9feec92da9c2823b5", null ],
+    [ "geoj", "geo-rectify-shoreline__shp_6json_8py.html#aba5fe642408eb4cb26f68f7173114aac", null ],
+    [ "geom", "geo-rectify-shoreline__shp_6json_8py.html#a56c84f1c9857e97f338547fd987ddd7e", null ],
+    [ "H", "geo-rectify-shoreline__shp_6json_8py.html#a67a21e4d631ef49ac6e2c2bfdeb8eddd", null ],
+    [ "json_shrl_name", "geo-rectify-shoreline__shp_6json_8py.html#ae56545e6f01634c381055aec2adf3c40", null ],
+    [ "reader", "geo-rectify-shoreline__shp_6json_8py.html#a5a60db7418a6f023436774a3dc400466", null ],
+    [ "rectPar_TC1", "geo-rectify-shoreline__shp_6json_8py.html#a1203080e3152ae23c8a5388191d4bd40", null ],
+    [ "shl", "geo-rectify-shoreline__shp_6json_8py.html#a1c8d5632e1faf3c4a17b80466ffc6a00", null ],
+    [ "shrl_name", "geo-rectify-shoreline__shp_6json_8py.html#a4089d83144ebaf286f35a6963983bbf4", null ],
+    [ "transl", "geo-rectify-shoreline__shp_6json_8py.html#ad88fbcde2bb3e07878318560508cd9a0", null ],
+    [ "translation", "geo-rectify-shoreline__shp_6json_8py.html#a867ee4610396a559df106c2e6f87ef5d", null ],
+    [ "undistorted", "geo-rectify-shoreline__shp_6json_8py.html#aaab43378a8a496ee435bfdc1645e9707", null ],
+    [ "UVshorl_ori", "geo-rectify-shoreline__shp_6json_8py.html#a5b79a044912d9255761134c5c90dfdbd", null ],
+    [ "UVshorl_resh", "geo-rectify-shoreline__shp_6json_8py.html#a56b405888c33ff9d9f15d0e3713e95f1", null ],
+    [ "UVshorl_und", "geo-rectify-shoreline__shp_6json_8py.html#a9ac392ba4a1f115260d6acf40feb5268", null ],
+    [ "XY_shor_und", "geo-rectify-shoreline__shp_6json_8py.html#a008b30834374d39764782d8059f99625", null ],
+    [ "XY_Shoreline", "geo-rectify-shoreline__shp_6json_8py.html#ac1a075eaee81463ae9c187641b27e34c", null ],
+    [ "xy_srl", "geo-rectify-shoreline__shp_6json_8py.html#ae2575638adaaf9bb40d0f7a6837f29ac", null ],
+    [ "z_level", "geo-rectify-shoreline__shp_6json_8py.html#ab70c279d775a91f0fc5bd2432b60889b", null ]
+];

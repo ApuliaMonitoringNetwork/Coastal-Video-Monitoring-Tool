@@ -1,0 +1,3 @@
+The "precompiled_onlyLinux" path include the main matlab files (*.m and .*mex) usefull for a complete executable program
+(tested on Matlab Unix 2013a).
+

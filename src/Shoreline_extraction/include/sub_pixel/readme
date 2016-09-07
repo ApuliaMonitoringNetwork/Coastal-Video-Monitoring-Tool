@@ -1,0 +1,28 @@
+Description	(1):
+(1)
+This is the Matlab source code of the sub pixel edge detection method detailed in the paper “Accurate Subpixel Edge Location Based on Partial Area Effect”, published by Elsevier in 
+http://www.sciencedirect.com/science/article/pii/S0262885612001850 
+The main folder contains the following files: 
+- subpixelEdges is the detection method. Type 'help subpixelEdges' for more info 
+- visEdges is the method for displaying detected edges over the image 
+- subpixelImage creates a high resolution binary image with the detected edges 
+- subsetEdges extracts a subset of edges that fulfill condition 
+- example1 is an example of using the method with a synthetic image 
+- example2 is similar but using a real image 
+- example3 uses a big image of a printed text captured by a mobile phone camera 
+- example4 creates a high resolution binary image for the example 1 
+- example5 is an example of using the method with a high-noise synthetic image 
+- example6 is similar but using a real angiography 
+- subpixelStartGUI is a graphical app to test different features of the method 
+Several slides explaining the method in: 
+http://serdis.dis.ulpgc.es/~atrujill/subpixel/subpixelSlides.pdf
+
+
+Required Products (2):
+(2)
+Image Processing Toolbox
+MATLAB
+
+MATLAB release (3):
+(3)
+MATLAB 8.1 (R2013a)
