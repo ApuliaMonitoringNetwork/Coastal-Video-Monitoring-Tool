@@ -1,121 +1,65 @@
-ImageJ2 is a new version of [ImageJ](http://imagej.net/) seeking to strengthen
-both the software and its community. Internally, it is a total redesign of
-ImageJ, but it is backwards compatible with ImageJ 1.x via a "legacy layer" and
-features a user interface closely modeled after the original.
+Fiji distribution from https://github.com/fiji/fiji:
 
-Under the hood, ImageJ2 completely isolates the image processing logic from the
-graphical user interface (UI), allowing ImageJ2 commands to be used in many
-contexts, including headless in the cloud or on a server such as
-[OMERO](http://openmicroscopy.org/site/support/omero4), or from within another
-application such as [KNIME](http://knime.org/),
-[Icy](http://icy.bioimageanalysis.org/) or
-[CellProfiler](http://cellprofiler.org/) (a Python application).
+[ Fiji Is Just ImageJ ]
 
-ImageJ2 has an N-dimensional data model driven by the powerful
-[ImgLib2](http://imglib2.net/) library, which supports image data expressed in
-an extensible set of numeric and non-numeric types, and accessed from an
-extensible set of data sources. ImageJ2 is driven by a state-of-the-art,
-collaborative development process, including version control, unit testing,
-automated builds via a continuous integration system, a bug tracker and more.
+Fiji is a "batteries-included" distribution of ImageJ—a popular, free scientific image processing application—which includes a lot of plugins organized into a coherent menu structure. Fiji compares to ImageJ as Ubuntu compares to Linux.
 
-We are collaborating closely with related projects including
-[Fiji](http://fiji.sc/), [SCIFIO](http://scif.io/) and
-[OME](http://openmicroscopy.org/), and are striving to deliver a coherent
-software stack reusable throughout the life sciences community and beyond. For
-more details, see the [SciJava web site](http://scijava.org/).
+The main focus of Fiji is to assist research in life sciences.
 
-ImageJ2 is currently in the "beta" stage, meaning the code is not finished. It
-is being released for early community feedback and testing. Comments, questions
-and bug reports are much appreciated!
+At the moment, the following platforms are supported:
 
-To maintain ImageJ's continuity of development, we have modeled the application
-after ImageJ v1.x as much as is reasonable. However, please be aware that
-ImageJ2 is essentially a total rewrite of ImageJ from the ground up. It
-provides backward compatibility with older versions of ImageJ by bundling the
-latest v1.x code and translating between "legacy" and "modern" image
-structures.
+Windows Intel 32-bit/64-bit
+Linux Intel 32-bit/64-bit
+MacOSX Intel 32-bit/64-bit (partial support for PowerPC 32-bit)
+all platforms supporting Java and a POSIX shell, via bin/ImageJ.sh
+The setup is as easy as unpacking the portable archive and double-clicking the ImageJ launcher.
 
-For more details on the project, see the [ImageJ web site](http://imagej.net/).
+Fiji is intended to be the most painless, easy, quick and convenient way to install ImageJ and plugins and keep everything up-to-date.
 
+Usage
 
-LICENSING
----------
+Fiji is meant to be distributed without source, to make the download as small as possible. In the basic version, Fiji is a portable application, i.e. it should run wherever you copy it.
 
-ImageJ2 is distributed under a
-[Simplified BSD License](http://en.wikipedia.org/wiki/BSD_licenses);
-for the full text of the license, see
-[LICENSE.txt](https://github.com/imagej/imagej/blob/master/LICENSE.txt).
+The starting point is the ImageJ launcher, which will launch Java, set up the environment, and call ImageJ.
 
-For the list of developers and contributors, see
-[pom.xml](https://github.com/imagej/imagej/blob/master/pom.xml).
+To pass arguments to ImageJ, just specify them on the command line.
 
+To pass arguments to the Java Virtual Machine, specify them on the command line, separating them from the ImageJ arguments (if any) with a --. In other words, if you want to override the memory setting, call Fiji like this:
 
-IMAGEJ AS A LIBRARY
--------------------
+$ ./ImageJ-linux32 -Xmx128m --
+Open Source
 
-This repository is the master ImageJ application, which brings together all of
-ImageJ under the artifact
-[net.imagej:imagej](http://maven.imagej.net/index.html#nexus-search;gav~net.imagej~imagej~~~~kw,versionexpand).
-It is the easiest entry point if you are looking to use ImageJ as a library from
-your own software. E.g., in your Maven `pom.xml`:
+We are dedicated to open source. Not only does open source allow other developers to port the application to new platforms that the original authors did not begin to think of, it allows scientists to study the code to understand the inner workings of the algorithms used, and it permits others to use the program in totally new ways, and enhance it in all imaginable ways.
 
-```
-<parent>
-  <groupId>net.imagej</groupId>
-  <artifactId>pom-imagej</artifactId>
-  <version>2.35</version>
-</parent>
-...
-<dependency>
-  <groupId>net.imagej</groupId>
-  <artifactId>imagej</artifactId>
-</dependency>
-```
+Therefore, the majority of Fiji is licensed under the GNU Public License version 2. Exceptions are listed in the LICENSES file.
 
-We recommend inheriting from the
-[pom-imagej](https://github.com/imagej/pom-imagej) parent, although it is not
-required. (If you do not, you will need to include the `<version>` of ImageJ in
-your `<dependency>` declaration.)
+Fiji's source code is split up into a main repository, containing the top-level project and support scripts, while all components live in their own repositories in the Fiji organization on GitHub. As a rule of thumb: the file name and the project name correspond pretty well, e.g. fiji-compat.jar is maintained in fiji-compat.
+
+Participating
+
+Pull Requests are very welcome!
+
+See the Contributing page of the ImageJ wiki.
+
+Authors
+
+Fiji was created and is maintained by Johannes Schindelin, ImageJ 1.x was created and is maintained by Wayne Rasband, ImageJ2 was created and is maintained and actively developed by Curtis Rueden. For a list of most recent contributors, please refer to the Contributors page of the ImageJ wiki.
+
+Thanks
+
+We are very grateful to Wayne Rasband, who is not only a very dedicated developer of ImageJ 1.x; he also fosters an active and friendly community around ImageJ.
+
+We are especially grateful to be part of an outstanding community who is active, friendly and helping to scientists understanding and analysing images every day.
+
+Oh, and Fiji is also an island. We just wanted to let you know.
 
 
-DEPENDENCIES
-------------
 
-This component depends on other, lower level components, each of which lives in
-its own repository:
+It also includes two plugins from BIG (ECOLE POLYTECHNIQEU FEDERALE DE LAUSANNE):
 
-* [ImageJ Common](https://github.com/imagej/imagej-common)
-* [ImageJ Legacy](https://github.com/imagej/imagej-legacy)
-* [ImageJ OPS](https://github.com/imagej/imagej-ops)
-* [ImageJ Updater](https://github.com/imagej/imagej-updater)
-* [ImgLib2](https://github.com/imglib/imglib)
-* [SCIFIO](https://github.com/scifio/scifio)
-* [SciJava Common](https://github.com/scijava/scijava-common)
+* A Java package for running ImageJ and Fiji within Matlab: MIJ from 
+Daniel Sage, Dimiter Prodanov, Jean-Yves Tinevez and Johannes Schindelin, " MIJ: Making Interoperability Between ImageJ and Matlab Possible" ImageJ User & Developer Conference, 24-26 October 2012, Luxembourg.
 
-It also includes uses various "plugin" components at runtime:
+* Bi-Exponential Edge-Preserving Smoother
+P. Thévenaz, D. Sage, M. Unser, "Bi-Exponential Edge-Preserving Smoother" IEEE Transactions on Image Processing, vol. 21, no. 9, pp. 3924-3936, September 2012.
 
-* [Imagej Plugins: Commands](https://github.com/imagej/imagej-plugins-commands)
-* [Imagej Plugins: Tools](https://github.com/imagej/imagej-plugins-tools)
-* [Imagej Plugins: Uploader: SSH](https://github.com/imagej/imagej-plugins-uploader-ssh)
-* [Imagej Plugins: Uploader: WebDAV](https://github.com/imagej/imagej-plugins-uploader-webdav)
-* [SciJava Plugins: Platforms](https://github.com/scijava/scijava-plugins-platforms)
-* [SciJava Plugins: Text: Markdown](https://github.com/scijava/scijava-plugins-text-markdown)
-* [SciJava Plugins: Text: Plain](https://github.com/scijava/scijava-plugins-text-plain)
-* [Scripting: Beanshell](https://github.com/scijava/scripting-beanshell)
-* [Scripting: Clojure](https://github.com/scijava/scripting-clojure)
-* [Scripting: Java](https://github.com/scijava/scripting-java)
-* [Scripting: JavaScript](https://github.com/scijava/scripting-javascript)
-* [Scripting: JRuby](https://github.com/scijava/scripting-jruby)
-* [Scripting: Jython](https://github.com/scijava/scripting-jython)
-
-See the [pom.xml](pom.xml) for a complete list of dependencies.
-
-
-BUGS
-----
-
-For a list of known issues, see the
-[issue tracking system](http://trac.imagej.net/report/1).
-
-Please report any bugs by following the [instructions
-online](http://imagej.net/Bugs).
