@@ -1,5 +1,7 @@
+#Notes
 For every datetime of image/shoreline to process, rounded to the nearest quarter hour, a request is sent to the Autorithy of Basin of  Apulia region (Italy) server. 
 
+##Abstract 
 A real-time filter is being implemented which mainly include: standard filter for setting tolerance limit values between
 successive measurements, spike filtering, using spline test adaptation applied over the measurements extracted
 using 16 hours temporal window, centered on the investigated time interval and threshold values filtering,
