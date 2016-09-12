@@ -10,4 +10,4 @@ This Repository is intendend to share sources for the applications running on th
 1. "src"						Mareographic filter, geo-rectification sources & shoreline extraction codes
 2. "Web-server ??"				Web-tool sources ??
 
-This tool has been developed and mantained from Polytechnic University of Bari (Italy), DICATECh Department.
+This tool has been developed and mantained from Polytechnic University of Bari (Italy), DICATECh Department in collaboration with ACIC (http://www.acic-tech.be/), Multitel spin-off
