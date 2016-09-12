@@ -8,6 +8,6 @@ Coastline time variation along predefined cross-shore transect is also available
 This Repository is intendend to share sources for the applications running on the coastal video-monitoring web-tool includes the web-server itself:
 
 1. "src"						Mareographic filter, geo-rectification sources & shoreline extraction codes
-2. "Web-server"					Path containing the sources for running the web-server
+2. "Web-server ??"				Web-tool sources ??
 
 This tool has been developed and mantained from Polytechnic University of Bari (Italy), DICATECh Department.
