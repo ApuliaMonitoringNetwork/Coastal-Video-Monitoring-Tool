@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="us">
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/960_12_col.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/smoothness/jquery-ui.min.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/jquery-ui-timepicker-addon.min.css"/>
+		<link rel="stylesheet" type="text/css" media="all" href="css/jquery.dataTables.min.css"/>
+		<link rel="stylesheet" type="text/css" media="all" href="css/dataTables.jqueryui.min.css"/>
+		<link rel="stylesheet" type="text/css" media="all" href="css/layout.css" />
+		<script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui-timepicker-addon.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="scripts/saveas.js"></script>
+		<script type="text/javascript" src="scripts/canvas-to-blob.js"></script>
+		<script type="text/javascript" src="scripts/jquery.flot.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.flot.time.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.flot.canvas.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.flot.selection.min.js"></script>
+		<script type="text/javascript" src="scripts/init.js"></script>
+	</head>
+	<body>		
+		<div id="tabs">
+			<ul>
+				<li><a href="#currentImages">Current images</a></li>
+				<li><a href="#imagesReport">Images report</a></li>
+				<li><a href="#maps">Shoreline Map</a></li>
+				<li><a href="#transect">Shoreline Transect Analysis</a></li>
+				<li><a href="#download">Download</a></li>
+			</ul>
+			
+			<!-- Current images -->
+			<div id="currentImages">
+				<div class="container_12">
+					<div id="currentImages_list"></div>
+				</div>
+			</div>
+			
+			<!-- Images reports -->
+			<div id="imagesReport">
+				<div class="container_12">
+					
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="imagesReport_site_label">Monitoring stations</label>
+					</div>
+					<div class="grid_6">
+						<div id="imagesReport_sites"></div>								
+					</div>
+					<div class="clear"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="imagesReport_from_label">Beginning period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" id="imagesReport_from"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="imagesReport_to_label">Ending period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" id="imagesReport_to"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label>Interval</label>
+					</div>
+					<div class="grid_6">
+						<div id="imagesReport_interval">
+							<input type="radio" id="imagesReport_interval_30min" value="30" name="imagesReport_interval" checked="checked"><label for="imagesReport_interval_30min">30 Min</label>
+							<input type="radio" id="imagesReport_interval_1h" value="60" name="imagesReport_interval"><label for="imagesReport_interval_1h">1 H</label>
+							<input type="radio" id="imagesReport_interval_3h" value="180" name="imagesReport_interval"><label for="imagesReport_interval_3h">3 H</label>
+							<input type="radio" id="imagesReport_interval_12h" value="720" name="imagesReport_interval"><label for="imagesReport_interval_12h">12 H</label>
+						</div>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="imagesReport_type_label">Image type</label>
+					</div>
+					<div class="grid_6">
+						<div id="imagesReport_types">
+							<input type="checkbox" id="imagesReport_types_snapshot"><label for="imagesReport_types_snapshot">Snapshot</label>
+							<input type="checkbox" id="imagesReport_types_averaged"><label for="imagesReport_types_averaged">Averaged</label>
+							<input type="checkbox" id="imagesReport_types_std_dev"><label for="imagesReport_types_std_dev">Std deviation</label>
+							<input type="checkbox" id="imagesReport_types_geo_rectified"><label for="imagesReport_types_geo_rectified">Geo rectified</label>
+						</div>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="grid_12">&nbsp</div>
+					<div class="clear"></div>
+						
+					<div class="grid_2 prefix_10">
+						<button class="right" id="imagesReport_request">Submit</button>
+					</div>
+					<div class="clear"></div>	
+					
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_12">
+						<table id="imagesReport_table" class="display" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Camera</th>
+									<th>Image type</th>
+									<th>Thumbnail</th>
+								</tr>
+							</thead>
+							<tbody/>
+							<tfoot>
+								<tr>
+									<th>Date</th>
+									<th>Camera</th>
+									<th>Image type</th>
+									<th>Thumbnail</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					
+				</div>
+			</div>
+			
+			<!-- Maps reports -->
+			<div id="maps">
+				<div class="container_12">
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="mapsReport_site_label">Monitoring stations</label>
+					</div>
+					<div class="grid_6">
+						<div id="mapsReport_sites"></div>								
+					</div>
+					<div class="clear"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+
+					<div class="grid_3 prefix_1">
+						<label id="mapsReport_cameras_label">Cameras</label>
+					</div>
+					<div class="grid_6">
+						
+						<select name="mapsReport_cameras" id="mapsReport_cameras">
+							<option value="">Select a camera</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="mapsReport_from_label">Beginning period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" id="mapsReport_from"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="mapsReport_to_label">Ending period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" id="mapsReport_to"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_12">&nbsp</div>
+					<div class="clear"></div>
+						
+					<div class="grid_2 prefix_10">
+						<button class="right" id="mapsReport_request">Submit</button>
+					</div>
+					<div class="clear"></div>	
+					
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div id="coordArea">
+					<div id="mapsReport_coordinates_x" class="grid_2 prefix_3 center"><span>X:&nbsp;</span><span id="xcoord"></span></div>
+					<div id="mapsReport_coordinates_y" class="grid_2 center"><span>Y:&nbsp;</span><span id="ycoord"></span></div>
+					</div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+
+					<div class="grid_9">
+						<canvas id="mapsReport_canvas"></canvas>
+					</div>
+					<div id="mapsReport_shoreline" class="grid_3">
+						
+					</div>
+				</div>
+			</div>
+			
+			<!-- Transect report -->
+			<div id="transect">
+				<div class="container_12">
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="transectReport_site_label">Monitoring stations</label>
+					</div>
+					<div class="grid_6">
+						<div id="transectReport_sites"></div>								
+					</div>
+					<div class="clear"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+
+					<div class="grid_3 prefix_1">
+						<label id="transectReport_cameras_label">Cameras</label>
+					</div>
+					<div class="grid_6">
+						<select name="transectReport_cameras" id="transectReport_cameras">
+							<option value="">Select a camera</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="transectReport_from_label">Beginning period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" id="transectReport_from"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="transectReport_to_label">Ending period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" id="transectReport_to"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_12">&nbsp;</div>
+					<div class="clear"></div>
+						
+					<div class="grid_2 prefix_10">
+						<button class="right" id="transectReport_request">Submit</button>
+					</div>
+					<div class="clear"></div>	
+					
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+										
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+
+					<div class="grid_9">
+						<canvas id="transectReport_canvas"></canvas>
+					</div>
+					<div id="transectReport_transect" class="grid_3"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_12" id="progressbarWrapper">
+						<div id="progressbar"><div class="progress-label">Loading...</div></div>
+					</div>
+					<div class="clear"></div>
+					
+					<div id="chart" class="grid_12">
+						<div id="placeholder"></div>
+					</div>
+					<div class="clear"></div>	
+					
+					<div id="transectReport_buttonsBar" class="grid_12"></div>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<!-- Download -->
+			<div id="download">
+				<form action="archive.php" method="post" id="download_form">
+				<div class="container_12">	
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="download_site_label">Monitoring stations</label>
+					</div>
+					<div class="grid_6">
+						<div id="download_sites"></div>
+					</div>
+					<div class="clear"></div>
+					
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="download_from_label">Beginning period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" name="from" id="download_from"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="download_to_label">Ending period</label>
+					</div>
+					<div class="grid_6">
+						<input type="text" name="to" id="download_to"></input>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_3 prefix_1">
+						<label id="download_files_label">Files</label>
+					</div>
+					<div class="grid_6">
+						<div id="download_files">
+							<input type="checkbox" name="files[]" value="snapshot.jpg" id="download_files_snapshot"><label for="download_files_snapshot">Snapshot</label>
+							<input type="checkbox" name="files[]" value="averaged.jpg" id="download_files_averaged"><label for="download_files_averaged">Averaged</label>
+							<input type="checkbox" name="files[]" value="std_deviation.jpg" id="download_files_std_dev"><label for="download_files_std_dev">Std deviation</label>
+							<input type="checkbox" name="files[]" value="geo_rectified.jpg" id="download_files_geo_rectified"><label for="download_files_geo_rectified">Geo rectified</label>
+							<input type="checkbox" name="files[]" value="shoreline" id="download_files_shoreline"><label for="download_files_shoreline">Shoreline shapefiles</label>
+						</div>	
+					</div>
+					<div class="clear"></div>
+					
+
+					<div class="grid_12 spacer"></div>
+					<div class="clear"></div>
+					
+					<div class="grid_12">&nbsp</div>
+					<div class="clear"></div>
+						
+					<div class="grid_2 prefix_10">
+						<button class="right" id="download_request">Download</button>
+					</div>
+					<div class="clear"></div>	
+					
+					<div class="grid_12 separator"></div>
+					
+					<div class="grid_6">
+						<h4>Static resources</h4>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_12">
+						<ul id="download_transect"/>
+					</div>
+				</div>	
+				</form>
+			</div>
+		</div>
+		
+		<div id="image_dialog">
+			<img src=""/>
+		</div>
+	</body>
+</html>

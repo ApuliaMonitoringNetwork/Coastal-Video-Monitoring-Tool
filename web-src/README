@@ -1,0 +1,99 @@
+The resources directory is a sample of files needed by the interface
+
+About the naming convention
+---------------------------
+
+
+The document root (/var/www/html) must contains a subdirectory named resources
+
+    resources/
+        current/
+            <Last produced image file znd shorelines>
+        static/
+            Transect segment in json format
+        2016/
+            02/
+                22/
+                    ...
+                    13/
+                        00/
+                        30/
+                    14/
+                        00/
+                        30/
+                            Data produced geo rectified img, average, snapshot, shooreline coord, ...
+        ...
+
+
+Each resources name has the following form
+
+
+<site_name>_<camera_name>_<resource_type>.<ext>
+
+where site name is one of
+
+    fasano_(torre_canne)
+    port_cesareo_(torre_lapillo)
+
+where camera name is one of
+
+    vs1, vs2, ... ,vsN    /// visible
+    th1, th2, ..., thN    /// thermique
+
+where resource type is one of
+
+    snapshot
+    averaged
+    standard_deviation
+    geo_rectified
+    transect
+    shoreline
+    wcs_shoreline
+
+where extension is
+
+    jpg
+    jgw
+    json
+
+
+Format of transect segments x and y in normalized coord space [-1,1]
+
+[
+	{								/* First transect point */
+		"from": [0.33419994,-0.29350527],			/* Leading point x,y */
+		"wcsFrom" : [708601.9470767262,4522996.41345561],	/* Real coordinates of leading point x,y */
+		"to": [0.99980540,0.01962320],				/* Trailing point x,y */
+		"wcsTo" : [708625.3658790551,4523028.595637038]		/* Real coordinates of trailing point x,y */
+	},
+	{								/* Second transec point */
+		"from": [0.03939438,-0.09659158],
+		"wcsFrom" : [708588.057882615,4523003.135659886],
+		"to": [0.69475550,0.15419886],
+		"wcsTo" : [708610.8283741364,4523037.651868045]
+	},   
+	...
+]
+
+Format of shorelines x and y in normalized coord space [-1,1] - file *_shoreline.json
+
+{
+	"shoreline": [
+		[0.021444509428405437, 0.027889509204767474],		/* First point x,y */ 
+		[0.030957401115380104, 0.016703411354935097], 		/* Second point x,y */
+		[0.04024537774590549, 0.00578174354704815],
+		...
+	]
+}
+
+Format of the shorelines x and y in real coord space system (in meter) - file *_wcs_shoreline.json
+
+{
+	"wcsShoreline" : [
+		[708259.3264863284,4523311.216223132],			/* First point x,y */
+		[708263.6055266656,4523306.743854533],			/* Second point x,y */
+		[708267.7833968612,4523302.377209005],
+		...
+	]
+}
+
